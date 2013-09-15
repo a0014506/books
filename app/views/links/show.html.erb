@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>ID:</b>
+  <%= @link.id %>
+</p>
+
+<p>
+  <b>Traffic:</b>
+  <%= @link.traffic %>
+</p>
+
+<p>
+	<b>Comment:</b>
+</p>
+<p>
+  	<% @link.user.each do |obj| %>
+  		<% if obj.comment != "" %>
+        	<b><%= obj.name %></b><br>
+        	<%= obj.comment %><hr/>
+    	<% end %>
+    <% end %>
+</p>
+
+<%= link_to 'Edit', edit_link_path(@link) %> |
+<%= link_to 'Back', links_path %>

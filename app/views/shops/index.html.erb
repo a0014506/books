@@ -1,0 +1,44 @@
+<%= javascript_include_tag :defaults %>
+
+
+<h2>Maps</h2>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span12">
+			<%= link_to image_tag("130905_Link.png", alt: "Rails") %>
+			<br><br><br><br>
+		</div>
+	</div>
+</div>
+
+
+
+
+<h2>Shops</h2>
+
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th>Name</th>
+    <th>Function</th>
+    
+  </tr>
+
+<% @shops.each do |shop| %>
+  <tr>
+    <td><%= shop.name %></td>
+    <td><%= link_to 'Show', shop, :remote => true, "data-type" => "html", :class => 'show' %></td>
+    <td><%= link_to 'Edit', edit_shop_path(shop) %></td>
+    <td><%= link_to 'Destroy', shop, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'New Shop', new_shop_path %>
+<br />
+
+<div id="show_area"></div>
+<%= javascript_tag do %>
+$('a.show').on('ajax:success', function (data, status, xhr) {
+  $('#show_area').html(status);
+})
+<% end %>

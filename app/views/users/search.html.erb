@@ -1,0 +1,19 @@
+<div class="center hero-unit">
+  <h1>Welcome</h1>
+
+<h2>New User</h2>
+
+<button class="btn btn-large btn-primary" type="button"><%= link_to 'New User', new_user_path  %></button>
+
+<br />
+
+<h2>Search</h2>
+<p>Enter User ID</p>
+  
+<form method="post" action="/users/showone">
+ <p>
+ <input type="text" name="num" /><br />
+ <input type="submit" value="Submit" />
+ </p>
+</form>
+</div>

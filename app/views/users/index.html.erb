@@ -1,0 +1,57 @@
+<div class="center">
+
+<h1>Welcome</h1>
+
+<h2>New User</h2>
+<fieldset>
+<button class="btn btn-large btn-primary" type="button"><%= link_to 'New User', new_user_path  %></button>
+</fieldset>
+
+</div>
+
+<br />
+
+<h2>View</h2>
+
+<div class="container-fluid" "center hero-unit">
+	<div class="row-fluid">
+		<div class="span6">
+			<table class="table table-striped table-bordered table-condensed" >
+				<thead>
+					<tr>
+						<th>
+							User_ID
+						</th>
+						<th>
+							Name
+						</th>
+						<th>
+							Link_ID
+						</th>
+						<th>
+							Comment
+						</th>
+						<th>
+							Function
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @users.each do |user| %>
+  						<tr>
+  							<td><%= user.id %></td>
+    						<td><%= user.name %></td>
+    						<td><%= user.link_id %></td>
+    						<td><%= user.comment %></td>
+    						<td><%= link_to 'Show', user %></td>
+    						<td><%= link_to 'Edit', edit_user_path(user) %></td>
+    						<td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+
